@@ -7,6 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 FFNerd.api_key = "6rzmnpy3vtj2"
 players = FFNerd.players
+teams = FFNerd.teams
 players.select! {|player| player.active == "1" }
 players.select! {|player| player.position != "K" && player.position != "DEF" }
-players.each {|player| Player.create(name: player[:displayName], position: player[:position])}
+players.each {|player| Player.create(name: player[:displayName], position: player[:position], nfl_team_code: player[:team], nfl_team_name: teams.find {|team| team.code == player[:team]}.full_name)}
