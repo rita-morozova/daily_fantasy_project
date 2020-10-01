@@ -21,7 +21,7 @@ completed_game_weeks = 3
         end
     end
 end
-
+Player.update_salary_modifiers
 admin = User.create(username: "admin", password_digest: "admin", balance: 0, email: "admin@admin.com", admin: true )
 
  
